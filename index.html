@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <link rel = "stylesheet" href = "styles.css">
+    <head>
+        <title>IRC 2025 Scorekeeping</title>
+        <link rel="icon" type="image/png" href="/images/favicon.png">
+    </head>
+    <body>
+        <div id = "setup">
+            <button id="alliance" class = "RedClass" type = "button"> Red</button>
+            <button id = "confirmAlliance" type = "button"> Confirm</button>
+        </div>
+
+        <div id = "scoring" style = "display:none">
+            <div class = autonomous>
+                <h2>Autonomous</h2>
+                <h3 id = "leaveDescription">Leave: </h3>
+                <div class = "sidebyside">
+                    <button id = "addLeave" type = "button"> + </button>
+                    <button id = "removeLeave" type = "button"> - </button>
+                </div>
+                <h3>Auto High Scrap</h3>
+                <div class = "sidebyside">
+                    <button id = "addHighScrapAuto" type = "button"> + </button>
+                    <button id = "removeHighScrapAuto" type = "button"> - </button>
+                </div>
+                <h3>Auto Low Scrap</h3>
+                <div class = "sidebyside">
+                    <button id = "addLowScrapAuto" type = "button"> + </button>
+                    <button id = "removeLowScrapAuto" type = "button"> - </button>
+                </div>
+
+                <h3 id = "autoScrap"> Scraps Scored during autonomous: </h3>
+            </div>
+
+            <div class = "scrap"> 
+                <h2>Scraps</h2>
+                <h3 id = "highDescription">High: </h3>
+                <div class = "sidebyside">
+                    <button id = "addHighScrap" type = "button"> + </button>
+                    <button id = "removeHighScrap" type = "button"> - </button>
+                </div>
+                <h3 id = "lowDescription">Low: </h3>
+                <div class = "sidebyside">
+                    <button id = "addLowScrap" type = "button"> + </button>
+                    <button id = "removeLowScrap" type = "button"> - </button>
+                </div>
+                <h3 id = "vaultDescription">Vault: </h3>
+                <div class = "sidebyside">
+                    <button id = "addVaultScrap" type = "button"> + </button>
+                    <button id = "removeVaultScrap" type = "button"> - </button>
+                </div>
+            </div>
+
+            <div class = endgame>
+                <h2>Endgame</h2>
+                <h3 id = "coresDescription">Intake/Score Cores: </h3>
+                <div class = "sidebyside">
+                    <button id = "addCorePoints" type = "button"> + </button>
+                    <button id = "removeCorePoints" type = "button"> - </button>
+                </div>
+
+                <h3 id = "parkDescription">Parking: </h3>
+                <div class = "sidebyside">
+                    <button id = "addParkPoints" type = "button"> + </button>
+                    <button id = "removeParkPoints" type = "button"> - </button>
+                </div>
+            </div>
+
+            <div class = "foul">
+                <h2> Fouls: </h2>
+                <h3 id = "foulsDescription">Team commits a foul(points awarded to other alliance): </h3>
+                <div class = "sidebyside">
+                    <button id = "addFoul" type = "button"> + </button>
+                    <button id = "removeFoul" type = "button"> - </button>
+                </div>
+            </div>
+        </div>
+        <script src = "index.js" type = "module"></script>
+    </body>
+</html>
