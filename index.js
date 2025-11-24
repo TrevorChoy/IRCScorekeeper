@@ -14,6 +14,7 @@ let blueAlliance = false;
 //base app consts
 const setupSection = document.getElementById("setup");
 const scoringSection = document.getElementById("scoring");
+const submissionSection = document.getElementById("submission");
 //setup buttons
 const allianceButton = document.getElementById("alliance");
 const confirmButton = document.getElementById("confirmAlliance");
@@ -38,6 +39,7 @@ const removeParkPointsButton = document.getElementById("removeParkPoints");
 //awards foul points to other team for your team commiting fouls
 const addFoulButton = document.getElementById("addFoul");
 const removeFoulButton = document.getElementById("removeFoul");
+const submitDataButton = document.getElementById("submitData");
 
 allianceButton.addEventListener("click", function(){
     blueAlliance = !blueAlliance;
@@ -95,6 +97,11 @@ const blueVaultScrapScoreRef = ref(database, "blueVaultScore");
 const blueCoreScoreRef = ref(database, "blueCoreScore");
 const blueParkScoreRef = ref(database, "blueParkScore");
 const blueFoulsRef = ref(database, "blueFouls");
+
+//submit data refs
+const redDataRef = ref(database, "redData");
+const blueDataRef = ref(database, "blueData");
+
 //current score variables
 //once alliance is selected they will be for the seleced alliance
 let totalScore = 0;
@@ -126,6 +133,7 @@ function bindScoreListeners(){
         bindListener(blueCoreScoreRef, (val) => coreScore = val);
         bindListener(blueParkScoreRef, (val) => parkScore = val);
         bindListener(blueFoulsRef, (val) => fouls = val);
+        bindListener(blueDataRef, (val) => changeMode(val));
     }
     else{
         bindListener(redLeaveScoreRef, (val) => leaveScore = val);
@@ -135,7 +143,22 @@ function bindScoreListeners(){
         bindListener(redVaultScrapScoreRef, (val) => vaultScrapScore = val);;
         bindListener(redCoreScoreRef, (val) => coreScore = val);
         bindListener(redParkScoreRef, (val) => parkScore = val);
-        bindListener(redFoulsRef, (val) => fouls = val); 
+        bindListener(redFoulsRef, (val) => fouls = val);
+        bindListener(redDataRef, (val) => changeMode(val));
+    }
+}
+
+//if datasubmitted is false a new match started so go to scoring section
+//if datasubmitted is true the data has been submitted so go to submission screen
+function changeMode(dataSubmitted){
+    if(dataSubmitted == true){
+        submissionSection.style.display = "block";
+        scoringSection.style.display = "none";
+    }
+    else{
+        submissionSection.style.display = "none";
+        scoringSection.style.display = "block";
+        updateData();
     }
 }
 
@@ -392,6 +415,15 @@ removeFoulButton.addEventListener("click", function(){
     var inc = -foulPoints;
     //increment the score
     incrementData(foulReference, inc);
+});
+
+submitDataButton.addEventListener("click", function(){
+    if(blueAlliance){
+        setData(blueDataRef, true);
+    }
+    else{
+        setData(redDataRef, true);
+    }
 });
 
 function updateData(){
