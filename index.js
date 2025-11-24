@@ -47,11 +47,13 @@ allianceButton.addEventListener("click", function(){
         allianceButton.textContent = "Blue";
         allianceButton.classList = [];
         allianceButton.classList.add("BlueClass");
+        allianceButton.classList.add("BlueClassButton");
     }
     else{
         allianceButton.textContent = "Red";
         allianceButton.classList = [];
         allianceButton.classList.add("RedClass");
+        allianceButton.classList.add("RedClassButton");
     }
 });
 confirmButton.addEventListener("click", function(){
@@ -104,7 +106,6 @@ const blueDataRef = ref(database, "blueData");
 
 //current score variables
 //once alliance is selected they will be for the seleced alliance
-let totalScore = 0;
 let leaveScore = 0;
 //counts the number of scraps in auto for RP, not a point value
 let autoScraps = 0;

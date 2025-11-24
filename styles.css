@@ -75,10 +75,16 @@ button.removeButton:hover {
     background-color: #a32020;
     padding : 10px;
 }
+.RedClassButton:hover {
+    background-color: #d82727;
+}
 
 .BlueClass{
     background-color: #2040a3;
     padding : 10px;
+}
+.BlueClassButton:hover {
+    background-color: #2955da;
 }
 
 .autonomous{
